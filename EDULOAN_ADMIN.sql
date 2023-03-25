@@ -130,3 +130,63 @@ select count(*)
       
 END;
 /
+--CREATE TABLES AS PER DATA MODEL
+CREATE TABLE loan_applicants (
+    applicant_id INT PRIMARY KEY,
+    user_name VARCHAR(30) NOT NULL UNIQUE,
+    password RAW(100) NOT NULL,
+    first_name varchar(30) NOT NULL,
+    last_name varchar(30) NOT NULL,
+    email varchar(255) NOT NULL UNIQUE,
+    phone_number varchar(12) NOT NULL UNIQUE,
+    address varchar(300) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT applicant_email_check CHECK (REGEXP_LIKE(email, '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$')),
+    CONSTRAINT applicant_phone_check CHECK (REGEXP_LIKE(phone_number, '^[0-9]{10}$'))
+);
+/
+CREATE TABLE loan_officers (
+    officer_id INT PRIMARY KEY,
+    user_name VARCHAR(30) NOT NULL UNIQUE,
+    password RAW(100) NOT NULL,
+    first_name varchar(30) NOT NULL,
+    last_name varchar(30) NOT NULL,
+    email varchar(255) NOT NULL UNIQUE,
+    phone_number varchar(12) NOT NULL UNIQUE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT officer_email_check CHECK (REGEXP_LIKE(email, '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$')),
+    CONSTRAINT officer_phone_check CHECK (REGEXP_LIKE(phone_number, '^[0-9]{10}$'))
+);
+/
+CREATE TABLE loan_applications (
+    application_id INT PRIMARY KEY,
+    applicant_id INT NOT NULL REFERENCES loan_applicants,
+    officer_id INT NOT NULL REFERENCES loan_officers,
+    amount_requested INT NOT NULL,
+    status varchar(30) NOT NULL,
+    amount_approved INT NOT NULL,
+    loan_term varchar(30) NOT NULL,
+    interest_rate float NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT amount_check CHECK(amount_requested<100000)
+);
+/
+
+CREATE TABLE loan_disbursements (
+    disbursement_id INT PRIMARY KEY,
+    application_id INT NOT NULL REFERENCES loan_applications(application_id),
+    date_disbursed DATE NOT NULL,
+    amount_disbursed INT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT amount_check_two CHECK(amount_disbursed>0)
+);
+
+/
+CREATE TABLE loan_repayments (
+    repayment_id INT PRIMARY KEY,
+    application_id INT NOT NULL REFERENCES loan_applications,
+    payment_date DATE NOT NULL,
+    amount_paid INT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT amount_check_three CHECK(amount_paid>0)
+);
