@@ -190,3 +190,91 @@ CREATE TABLE loan_repayments (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT amount_check_three CHECK(amount_paid>0)
 );
+
+CREATE SEQUENCE APPLICANT_ID_SEQ
+ORDER;
+
+CREATE SEQUENCE OFFICER_ID_SEQ
+ORDER;
+
+CREATE SEQUENCE APPLICATION_ID_SEQ
+ORDER;
+
+CREATE SEQUENCE DISBURSEMENT_ID_SEQ
+ORDER;
+
+CREATE SEQUENCE REPAYMENT_ID_SEQ
+ORDER;
+
+CREATE OR REPLACE FUNCTION STANDARD_HASH_OUTPUT(str IN VARCHAR2)
+  RETURN RAW
+  AS
+  rawVal RAW(100);
+  BEGIN
+  SELECT standard_hash(str, 'SHA256') INTO rawVal FROM dual;
+  RETURN rawVal;
+END;
+/
+
+grant SELECT ON APPLICANT_ID_SEQ to APP_ADMIN;
+grant SELECT ON OFFICER_ID_SEQ to APP_ADMIN;
+grant SELECT ON APPLICATION_ID_SEQ to APP_ADMIN;
+grant SELECT ON DISBURSEMENT_ID_SEQ to APP_ADMIN;
+grant SELECT ON REPAYMENT_ID_SEQ to APP_ADMIN;
+
+--permissions for Admin Role
+GRANT ALL ON LOAN_APPLICANTS TO APP_ADMIN;
+GRANT ALL ON LOAN_OFFICERS TO APP_ADMIN;
+GRANT ALL ON LOAN_APPLICATIONS TO APP_ADMIN;
+GRANT ALL ON LOAN_DISBURSEMENTS TO APP_ADMIN;
+GRANT ALL ON LOAN_REPAYMENTS TO APP_ADMIN;
+
+--permissions for Applicant Role
+GRANT SELECT, UPDATE ON LOAN_APPLICANTS TO APP_APPLICANT;
+GRANT SELECT, UPDATE ON LOAN_APPLICATIONS TO APP_APPLICANT;
+GRANT SELECT ON LOAN_DISBURSEMENTS TO APP_APPLICANT;
+GRANT SELECT ON LOAN_REPAYMENTS TO APP_APPLICANT; 
+
+--permissions for Officer Role
+GRANT SELECT ON LOAN_APPLICANTS TO APP_OFFICER;
+GRANT SELECT, UPDATE ON LOAN_OFFICERS TO APP_OFFICER;
+GRANT SELECT, UPDATE ON LOAN_APPLICATIONS TO APP_OFFICER;
+GRANT SELECT ON LOAN_DISBURSEMENTS TO APP_OFFICER;
+GRANT SELECT ON LOAN_REPAYMENTS TO APP_OFFICER; 
+
+-- grant EXECUTE ON STANDARD_HASH_OUTPUT to APP_ADMIN;
+
+
+-----INSERTING DATA INTO TABLES
+
+-- loan applicants insertion into table
+
+INSERT INTO loan_applicants (applicant_id, user_name, password, first_name, last_name, email, phone_number, address)
+VALUES (APPLICANT_ID_SEQ.NEXTVAL, 'johndoe', STANDARD_HASH_OUTPUT('password7871'), 'John', 'Doe', 'johndoe@email.com', '1234567890', '123 Main St');
+
+INSERT INTO loan_applicants (applicant_id, user_name, password, first_name, last_name, email, phone_number, address)
+VALUES (APPLICANT_ID_SEQ.NEXTVAL, 'janedoe', STANDARD_HASH_OUTPUT('password2908'), 'Jane', 'Doe', 'janedoe@email.com', '9087654321', '456 Oak St');
+
+INSERT INTO loan_applicants (applicant_id, user_name, password, first_name, last_name, email, phone_number, address)
+VALUES (APPLICANT_ID_SEQ.NEXTVAL, 'bobsmith', STANDARD_HASH_OUTPUT('password3567'), 'Bob', 'Smith', 'bobsmith@email.com', '5551234567', '789 Maple St');
+
+INSERT INTO loan_applicants (applicant_id, user_name, password, first_name, last_name, email, phone_number, address)
+VALUES (APPLICANT_ID_SEQ.NEXTVAL, 'sarajohnson', STANDARD_HASH_OUTPUT('password4342'), 'Sara', 'Johnson', 'sarajohnson@email.com', '1235556789', '345 Elm St');
+
+INSERT INTO loan_applicants (applicant_id, user_name, password, first_name, last_name, email, phone_number, address)
+VALUES (APPLICANT_ID_SEQ.NEXTVAL, 'davidlee', STANDARD_HASH_OUTPUT('password5674'), 'David', 'Lee', 'davidlee@email.com', '9876543210', '678 Pine St');
+
+INSERT INTO loan_applicants (applicant_id, user_name, password, first_name, last_name, email, phone_number, address)
+VALUES (APPLICANT_ID_SEQ.NEXTVAL, 'janewilliams', STANDARD_HASH_OUTPUT('password6123'), 'Jane', 'Williams', 'janewilliams@email.com', '5557891234', '901 Oak St');
+
+INSERT INTO loan_applicants (applicant_id, user_name, password, first_name, last_name, email, phone_number, address)
+VALUES (APPLICANT_ID_SEQ.NEXTVAL, 'samjones', STANDARD_HASH_OUTPUT('password7345'), 'Sam', 'Jones', 'samjones@email.com', '1237894561', '234 Maple St');
+
+INSERT INTO loan_applicants (applicant_id, user_name, password, first_name, last_name, email, phone_number, address)
+VALUES (APPLICANT_ID_SEQ.NEXTVAL, 'lucymiller', STANDARD_HASH_OUTPUT('password9088'), 'Lucy', 'Miller', 'lucymiller@email.com', '9873216540', '567 Pine St');
+
+INSERT INTO loan_applicants (applicant_id, user_name, password, first_name, last_name, email, phone_number, address)
+VALUES (APPLICANT_ID_SEQ.NEXTVAL, 'brianbrown', STANDARD_HASH_OUTPUT('password8889'), 'Brian', 'Brown', 'brianbrown@email.com', '5554567890', '890 Oak St');
+
+INSERT INTO loan_applicants (applicant_id, user_name, password, first_name, last_name, email, phone_number, address)
+VALUES (APPLICANT_ID_SEQ.NEXTVAL, 'jennysmith', STANDARD_HASH_OUTPUT('password6710'), 'Jenny', 'Smith', 'jennysmith@gmail.com', '8989898989', '90 saint St');
