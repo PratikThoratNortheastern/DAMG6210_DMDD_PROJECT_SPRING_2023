@@ -278,3 +278,131 @@ VALUES (APPLICANT_ID_SEQ.NEXTVAL, 'brianbrown', STANDARD_HASH_OUTPUT('password88
 
 INSERT INTO loan_applicants (applicant_id, user_name, password, first_name, last_name, email, phone_number, address)
 VALUES (APPLICANT_ID_SEQ.NEXTVAL, 'jennysmith', STANDARD_HASH_OUTPUT('password6710'), 'Jenny', 'Smith', 'jennysmith@gmail.com', '8989898989', '90 saint St');
+
+-- loan officers insertion into table
+
+INSERT INTO loan_officers (officer_id, user_name, password, first_name, last_name, email, phone_number)
+VALUES (OFFICER_ID_SEQ.nextval, 'emmawilson', STANDARD_HASH_OUTPUT('password231'), 'Emma', 'Wilson', 'emma.wilson@example.com', '5551234567');
+
+INSERT INTO loan_officers (officer_id, user_name, password, first_name, last_name, email, phone_number)
+VALUES (OFFICER_ID_SEQ.nextval, 'alexpatel', STANDARD_HASH_OUTPUT('password289'), 'Alex', 'Patel', 'alex.patel@example.com', '5552345678');
+
+INSERT INTO loan_officers (officer_id, user_name, password, first_name, last_name, email, phone_number)
+VALUES (OFFICER_ID_SEQ.nextval, 'samcarter', STANDARD_HASH_OUTPUT('password390'), 'Sam', 'Carter', 'sam.carter@example.com', '5553456789');
+
+INSERT INTO loan_officers (officer_id, user_name, password, first_name, last_name, email, phone_number)
+VALUES (OFFICER_ID_SEQ.nextval, 'ethanlee', STANDARD_HASH_OUTPUT('password456'), 'Ethan', 'Lee', 'ethan.lee@example.com', '5554567890');
+
+INSERT INTO loan_officers (officer_id, user_name, password, first_name, last_name, email, phone_number)
+VALUES (OFFICER_ID_SEQ.nextval, 'davidwil',  STANDARD_HASH_OUTPUT('password523'), 'David', 'Wil', 'david.wil@example.com', '5555678901');
+
+INSERT INTO loan_officers (officer_id, user_name, password, first_name, last_name, email, phone_number)
+VALUES (OFFICER_ID_SEQ.nextval, 'jessicataylor',  STANDARD_HASH_OUTPUT('password678'), 'Jessica', 'Taylor', 'jessica.taylor@example.com', '5556789012');
+
+INSERT INTO loan_officers (officer_id, user_name, password, first_name, last_name, email, phone_number)
+VALUES (OFFICER_ID_SEQ.nextval, 'christopheranderson',  STANDARD_HASH_OUTPUT('password790'), 'Christopher', 'Anderson', 'christopher.anderson@example.com', '5557890123');
+
+INSERT INTO loan_officers (officer_id, user_name, password, first_name, last_name, email, phone_number)
+VALUES (OFFICER_ID_SEQ.nextval, 'stephaniethomas',  STANDARD_HASH_OUTPUT('password458'), 'Stephanie', 'Thomas', 'stephanie.thomas@example.com', '5558901234');
+
+INSERT INTO loan_officers (officer_id, user_name, password, first_name, last_name, email, phone_number)
+VALUES (OFFICER_ID_SEQ.nextval, 'richardjackson',  STANDARD_HASH_OUTPUT('password909'), 'Richard', 'Jackson', 'richard.jackson@example.com', '5559012345');
+
+INSERT INTO loan_officers (officer_id, user_name, password, first_name, last_name, email, phone_number)
+VALUES (OFFICER_ID_SEQ.nextval, 'amandawhite',  STANDARD_HASH_OUTPUT('password190'), 'Amanda', 'White', 'amanda.white@example.com', '5550123456');
+
+-- loan applications insertion into table
+
+INSERT INTO loan_applications (application_id, applicant_id, officer_id, amount_requested, status, amount_approved, loan_term, interest_rate)
+VALUES (APPLICATION_ID_SEQ.nextval, 1, 1, 10000, 'approved', 20000, '1 year', 5.0);
+
+INSERT INTO loan_applications (application_id, applicant_id, officer_id, amount_requested, status, amount_approved, loan_term, interest_rate)
+VALUES (APPLICATION_ID_SEQ.nextval, 2, 1, 20000, 'approved', 20000, '2 years', 4.5);
+
+INSERT INTO loan_applications (application_id, applicant_id, officer_id, amount_requested, status, amount_approved, loan_term, interest_rate)
+VALUES (APPLICATION_ID_SEQ.nextval, 3, 2, 15000, 'approved', 40000, '1 year', 5.0);
+
+INSERT INTO loan_applications (application_id, applicant_id, officer_id, amount_requested, status, amount_approved, loan_term, interest_rate)
+VALUES (APPLICATION_ID_SEQ.nextval, 4, 2, 30000, 'approved', 30000, '3 years', 4.0);
+
+INSERT INTO loan_applications (application_id, applicant_id, officer_id, amount_requested, status, amount_approved, loan_term, interest_rate)
+VALUES (APPLICATION_ID_SEQ.nextval, 5, 3, 20000, 'approved', 50000, '2 years', 5.5);
+
+INSERT INTO loan_applications (application_id, applicant_id, officer_id, amount_requested, status, amount_approved, loan_term, interest_rate)
+VALUES (APPLICATION_ID_SEQ.nextval, 6, 3, 25000, 'approved', 20000, '2 years', 5.0);
+
+INSERT INTO loan_applications (application_id, applicant_id, officer_id, amount_requested, status, amount_approved, loan_term, interest_rate)
+VALUES (APPLICATION_ID_SEQ.nextval, 7, 4, 40000, 'approved', 40000, '4 years', 4.5);
+
+INSERT INTO loan_applications (application_id, applicant_id, officer_id, amount_requested, status, amount_approved, loan_term, interest_rate)
+VALUES (APPLICATION_ID_SEQ.nextval, 8, 4, 10000, 'approved', 30000, '1 year', 6.0);
+
+INSERT INTO loan_applications (application_id, applicant_id, officer_id, amount_requested, status, amount_approved, loan_term, interest_rate)
+VALUES (APPLICATION_ID_SEQ.nextval, 9, 5, 50000, 'approved', 15000, '5 years', 4.0);
+
+INSERT INTO loan_applications (application_id, applicant_id, officer_id, amount_requested, status, amount_approved, loan_term, interest_rate)
+VALUES (APPLICATION_ID_SEQ.nextval, 10, 5, 15000, 'approved', 15000, '2 years', 5.0);
+
+-- loan disbursements insertion into table
+
+INSERT INTO loan_disbursements(disbursement_id, application_id, date_disbursed, amount_disbursed)
+VALUES (DISBURSMENT_ID_SEQ.NEXTVAL, 1, TO_DATE('2022-02-01', 'YYYY-MM-DD'), 5000);
+
+INSERT INTO loan_disbursements(disbursement_id, application_id, date_disbursed, amount_disbursed)
+VALUES (DISBURSMENT_ID_SEQ.NEXTVAL, 2, TO_DATE('2022-03-15', 'YYYY-MM-DD'), 10000);
+
+INSERT INTO loan_disbursements(disbursement_id, application_id, date_disbursed, amount_disbursed)
+VALUES (DISBURSMENT_ID_SEQ.NEXTVAL, 3, TO_DATE('2022-04-21', 'YYYY-MM-DD'), 7500);
+
+INSERT INTO loan_disbursements(disbursement_id, application_id, date_disbursed, amount_disbursed)
+VALUES (DISBURSMENT_ID_SEQ.NEXTVAL, 4, TO_DATE('2022-05-10', 'YYYY-MM-DD'), 12000);
+
+INSERT INTO loan_disbursements(disbursement_id, application_id, date_disbursed, amount_disbursed)
+VALUES (DISBURSMENT_ID_SEQ.NEXTVAL, 5, TO_DATE('2022-06-05', 'YYYY-MM-DD'), 9000);
+
+INSERT INTO loan_disbursements(disbursement_id, application_id, date_disbursed, amount_disbursed)
+VALUES (DISBURSMENT_ID_SEQ.NEXTVAL, 6, TO_DATE('2022-07-19', 'YYYY-MM-DD'), 15000);
+
+INSERT INTO loan_disbursements(disbursement_id, application_id, date_disbursed, amount_disbursed)
+VALUES (DISBURSMENT_ID_SEQ.NEXTVAL, 7, TO_DATE('2022-08-12', 'YYYY-MM-DD'), 8000);
+
+INSERT INTO loan_disbursements(disbursement_id, application_id, date_disbursed, amount_disbursed)
+VALUES (DISBURSMENT_ID_SEQ.NEXTVAL, 8, TO_DATE('2022-09-27', 'YYYY-MM-DD'), 11000);
+
+INSERT INTO loan_disbursements(disbursement_id, application_id, date_disbursed, amount_disbursed)
+VALUES (DISBURSMENT_ID_SEQ.NEXTVAL, 9, TO_DATE('2022-10-16', 'YYYY-MM-DD'), 6500);
+
+INSERT INTO loan_disbursements(disbursement_id, application_id, date_disbursed, amount_disbursed)
+VALUES (DISBURSMENT_ID_SEQ.NEXTVAL, 10, TO_DATE('2022-11-09', 'YYYY-MM-DD'), 10000);
+
+-- loan repayments insertion into table
+
+INSERT INTO loan_repayments (repayment_id, application_id, payment_date, amount_paid)
+VALUES (REPAYMENT_ID_SEQ.NEXTVAL, 1, TO_DATE('2022-01-01', 'YYYY-MM-DD'), 1000);
+
+INSERT INTO loan_repayments (repayment_id, application_id, payment_date, amount_paid)
+VALUES (REPAYMENT_ID_SEQ.NEXTVAL, 2, TO_DATE('2022-02-01', 'YYYY-MM-DD'), 2000);
+
+INSERT INTO loan_repayments (repayment_id, application_id, payment_date, amount_paid)
+VALUES (REPAYMENT_ID_SEQ.NEXTVAL, 3, TO_DATE('2022-03-01', 'YYYY-MM-DD'), 1500);
+
+INSERT INTO loan_repayments (repayment_id, application_id, payment_date, amount_paid)
+VALUES (REPAYMENT_ID_SEQ.NEXTVAL, 4, TO_DATE('2022-04-01', 'YYYY-MM-DD'), 3000);
+
+INSERT INTO loan_repayments (repayment_id, application_id, payment_date, amount_paid)
+VALUES (REPAYMENT_ID_SEQ.NEXTVAL, 5, TO_DATE('2022-05-01', 'YYYY-MM-DD'), 2500);
+
+INSERT INTO loan_repayments (repayment_id, application_id, payment_date, amount_paid)
+VALUES (REPAYMENT_ID_SEQ.NEXTVAL, 6, TO_DATE('2022-06-01', 'YYYY-MM-DD'), 1000);
+
+INSERT INTO loan_repayments (repayment_id, application_id, payment_date, amount_paid)
+VALUES (REPAYMENT_ID_SEQ.NEXTVAL, 7, TO_DATE('2022-07-01', 'YYYY-MM-DD'), 500);
+
+INSERT INTO loan_repayments (repayment_id, application_id, payment_date, amount_paid)
+VALUES (REPAYMENT_ID_SEQ.NEXTVAL, 8, TO_DATE('2022-08-01', 'YYYY-MM-DD'), 2000);
+
+INSERT INTO loan_repayments (repayment_id, application_id, payment_date, amount_paid)
+VALUES (REPAYMENT_ID_SEQ.NEXTVAL, 9, TO_DATE('2022-09-01', 'YYYY-MM-DD'), 1000);
+
+INSERT INTO loan_repayments (repayment_id, application_id, payment_date, amount_paid)
+VALUES (REPAYMENT_ID_SEQ.NEXTVAL, 10, TO_DATE('2022-10-01', 'YYYY-MM-DD'), 3000);
