@@ -508,13 +508,13 @@ FROM
 
 --permissions for VIEWS
 GRANT SELECT ON loan_details_view TO APP_ADMIN;
-GRANT SELECT ON loan_details_view TO APP_APPLICANT;
-GRANT SELECT ON loan_details_view TO APP_OFFICER;
+-- GRANT SELECT ON loan_details_view TO APP_APPLICANT;
+-- GRANT SELECT ON loan_details_view TO APP_OFFICER;
 
 GRANT SELECT ON disbursements_by_officer_view to APP_ADMIN;
 
 GRANT SELECT ON repayments_by_applicant_view to APP_ADMIN;
-GRANT SELECT ON repayments_by_applicant_view to APP_OFFICER;
+-- GRANT SELECT ON repayments_by_applicant_view to APP_OFFICER;
 
 GRANT SELECT ON loan_officer_view to APP_ADMIN;
 
