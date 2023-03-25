@@ -481,3 +481,41 @@ GROUP BY
     loan_officers.first_name,
     loan_officers.last_name;
 
+-- SELECT * FROM loan_officer_view;
+
+CREATE OR REPLACE VIEW admin_view AS
+SELECT 
+    applicant_id AS USER_ID,
+    first_name || ' ' || last_name AS USER_NAME,
+    'loan applicant' AS USER_TYPE,
+    email,
+    phone_number,
+    address
+FROM 
+    loan_applicants
+UNION ALL
+SELECT 
+    officer_id AS USER_ID,
+    first_name || ' ' || last_name AS USER_NAME,
+    'loan officer' AS USER_TYPE,
+    email,
+    phone_number,
+    NULL AS address
+FROM 
+    loan_officers;
+
+-- SELECT * FROM admin_view;
+
+--permissions for VIEWS
+GRANT SELECT ON loan_details_view TO APP_ADMIN;
+GRANT SELECT ON loan_details_view TO APP_APPLICANT;
+GRANT SELECT ON loan_details_view TO APP_OFFICER;
+
+GRANT SELECT ON disbursements_by_officer_view to APP_ADMIN;
+
+GRANT SELECT ON repayments_by_applicant_view to APP_ADMIN;
+GRANT SELECT ON repayments_by_applicant_view to APP_OFFICER;
+
+GRANT SELECT ON loan_officer_view to APP_ADMIN;
+
+GRANT SELECT ON admin_view to APP_ADMIN;
