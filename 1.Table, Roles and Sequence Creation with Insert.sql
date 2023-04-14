@@ -165,7 +165,7 @@ CREATE TABLE loan_applications (
     amount_requested INT NOT NULL,
     status varchar(30) NOT NULL,
     amount_approved INT NOT NULL,
-    loan_term varchar(30) NOT NULL,
+    loan_term INT NOT NULL,
     interest_rate float NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT amount_check CHECK(amount_requested<100000)
