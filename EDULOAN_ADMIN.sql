@@ -346,34 +346,34 @@ VALUES (APPLICATION_ID_SEQ.nextval, 10, 5, 15000, 'approved', 15000, '2 years', 
 -- loan disbursements insertion into table
 
 INSERT INTO loan_disbursements(disbursement_id, application_id, date_disbursed, amount_disbursed)
-VALUES (DISBURSMENT_ID_SEQ.NEXTVAL, 1, TO_DATE('2022-02-01', 'YYYY-MM-DD'), 5000);
+VALUES (DISBURSEMENT_ID_SEQ.NEXTVAL, 1, TO_DATE('2022-02-01', 'YYYY-MM-DD'), 5000);
 
 INSERT INTO loan_disbursements(disbursement_id, application_id, date_disbursed, amount_disbursed)
-VALUES (DISBURSMENT_ID_SEQ.NEXTVAL, 2, TO_DATE('2022-03-15', 'YYYY-MM-DD'), 10000);
+VALUES (DISBURSEMENT_ID_SEQ.NEXTVAL, 2, TO_DATE('2022-03-15', 'YYYY-MM-DD'), 10000);
 
 INSERT INTO loan_disbursements(disbursement_id, application_id, date_disbursed, amount_disbursed)
-VALUES (DISBURSMENT_ID_SEQ.NEXTVAL, 3, TO_DATE('2022-04-21', 'YYYY-MM-DD'), 7500);
+VALUES (DISBURSEMENT_ID_SEQ.NEXTVAL, 3, TO_DATE('2022-04-21', 'YYYY-MM-DD'), 7500);
 
 INSERT INTO loan_disbursements(disbursement_id, application_id, date_disbursed, amount_disbursed)
-VALUES (DISBURSMENT_ID_SEQ.NEXTVAL, 4, TO_DATE('2022-05-10', 'YYYY-MM-DD'), 12000);
+VALUES (DISBURSEMENT_ID_SEQ.NEXTVAL, 4, TO_DATE('2022-05-10', 'YYYY-MM-DD'), 12000);
 
 INSERT INTO loan_disbursements(disbursement_id, application_id, date_disbursed, amount_disbursed)
-VALUES (DISBURSMENT_ID_SEQ.NEXTVAL, 5, TO_DATE('2022-06-05', 'YYYY-MM-DD'), 9000);
+VALUES (DISBURSEMENT_ID_SEQ.NEXTVAL, 5, TO_DATE('2022-06-05', 'YYYY-MM-DD'), 9000);
 
 INSERT INTO loan_disbursements(disbursement_id, application_id, date_disbursed, amount_disbursed)
-VALUES (DISBURSMENT_ID_SEQ.NEXTVAL, 6, TO_DATE('2022-07-19', 'YYYY-MM-DD'), 15000);
+VALUES (DISBURSEMENT_ID_SEQ.NEXTVAL, 6, TO_DATE('2022-07-19', 'YYYY-MM-DD'), 15000);
 
 INSERT INTO loan_disbursements(disbursement_id, application_id, date_disbursed, amount_disbursed)
-VALUES (DISBURSMENT_ID_SEQ.NEXTVAL, 7, TO_DATE('2022-08-12', 'YYYY-MM-DD'), 8000);
+VALUES (DISBURSEMENT_ID_SEQ.NEXTVAL, 7, TO_DATE('2022-08-12', 'YYYY-MM-DD'), 8000);
 
 INSERT INTO loan_disbursements(disbursement_id, application_id, date_disbursed, amount_disbursed)
-VALUES (DISBURSMENT_ID_SEQ.NEXTVAL, 8, TO_DATE('2022-09-27', 'YYYY-MM-DD'), 11000);
+VALUES (DISBURSEMENT_ID_SEQ.NEXTVAL, 8, TO_DATE('2022-09-27', 'YYYY-MM-DD'), 11000);
 
 INSERT INTO loan_disbursements(disbursement_id, application_id, date_disbursed, amount_disbursed)
-VALUES (DISBURSMENT_ID_SEQ.NEXTVAL, 9, TO_DATE('2022-10-16', 'YYYY-MM-DD'), 6500);
+VALUES (DISBURSEMENT_ID_SEQ.NEXTVAL, 9, TO_DATE('2022-10-16', 'YYYY-MM-DD'), 6500);
 
 INSERT INTO loan_disbursements(disbursement_id, application_id, date_disbursed, amount_disbursed)
-VALUES (DISBURSMENT_ID_SEQ.NEXTVAL, 10, TO_DATE('2022-11-09', 'YYYY-MM-DD'), 10000);
+VALUES (DISBURSEMENT_ID_SEQ.NEXTVAL, 10, TO_DATE('2022-11-09', 'YYYY-MM-DD'), 10000);
 
 -- loan repayments insertion into table
 
